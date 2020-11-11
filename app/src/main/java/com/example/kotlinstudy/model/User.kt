@@ -2,7 +2,6 @@ package com.example.kotlinstudy.model
 
 import android.os.Parcelable
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.example.kotlinstudy.utils.Constants
 import kotlinx.android.parcel.Parcelize
@@ -19,12 +18,4 @@ data class User(
     var avatarUrl: String = "",
     var password: String = "",
     var isSignIn: Boolean = false
-) : Parcelable {
-
-    @Ignore
-    constructor(email: String, password: String) : this(
-        email = email,
-        password = password,
-        isSignIn = true
-    )
-}
+) : Parcelable

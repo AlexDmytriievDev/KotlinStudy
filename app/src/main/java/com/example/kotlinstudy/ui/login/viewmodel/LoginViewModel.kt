@@ -45,7 +45,7 @@ class LoginViewModel @ViewModelInject constructor(
     fun login() {
         if (isValidCredentials()) {
             disposables.add(
-                rxUtils.zipWithTimer(dataBaseRepository.getAll(), Constants.DELAY.LOGIN)
+                rxUtils.zipWithTimer(dataBaseRepository.getAll(), Constants.DELAY.BASE)
                     .flatMap { users: List<User> -> updateUser(users) }
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -70,16 +70,20 @@ class LoginViewModel @ViewModelInject constructor(
     }
 
     private fun isValidCredentials(): Boolean {
-        if (email.value.isNullOrEmpty()) {
-            emailError.value = context.getString(R.string.error_empty)
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email.value ?: "").matches()) {
-            emailError.value = context.getString(R.string.error_email)
-        } else if (password.value.isNullOrEmpty()) {
-            passwordError.value = context.getString(R.string.error_empty)
-        } else if (password.value?.length ?: 0 < 6) {
-            passwordError.value = context.getString(R.string.error_password)
-        } else {
-            return true
+        when {
+            email.value.isNullOrEmpty() -> {
+                emailError.value = context.getString(R.string.error_empty)
+            }
+            !Patterns.EMAIL_ADDRESS.matcher(email.value ?: "").matches() -> {
+                emailError.value = context.getString(R.string.error_email)
+            }
+            password.value.isNullOrEmpty() -> {
+                passwordError.value = context.getString(R.string.error_empty)
+            }
+            password.value?.length ?: 0 < Constants.NUM.PASSWORD_MIN_LENGTH -> {
+                passwordError.value = context.getString(R.string.error_password)
+            }
+            else -> return true
         }
         return false
     }

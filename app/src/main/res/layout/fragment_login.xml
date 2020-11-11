@@ -28,7 +28,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/ThemeTextInputEditText"
                 android:inputType="textEmailAddress"
-                android:maxLength="@integer/login_email_max_length"
+                android:maxLength="@integer/edit_text_max_length"
                 android:onTextChangedObserver="@{viewModel.emailError}"
                 android:text="@={viewModel.email}" />
 
@@ -39,7 +39,7 @@
             style="@style/ThemeTextInputLayout"
             android:hint="@string/password"
             app:counterEnabled="true"
-            app:counterMaxLength="@integer/login_password_max_length"
+            app:counterMaxLength="@integer/password_max_length"
             app:errorText="@{viewModel.passwordError}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/ThemeTextInputEditText"
                 android:inputType="numberPassword"
-                android:maxLength="@integer/login_password_max_length"
+                android:maxLength="@integer/password_max_length"
                 android:onActionDoneClick="@{(view) -> viewModel.login()}"
                 android:onTextChangedObserver="@{viewModel.passwordError}"
                 android:text="@={viewModel.password}" />
@@ -95,7 +95,6 @@
             app:layout_constraintTop_toBottomOf="@+id/login_confirm_btn" />
 
         <com.example.kotlinstudy.ui.view.LoadingView
-            android:id="@+id/login_loading_view"
             android:layout_width="@dimen/zero_dp"
             android:layout_height="@dimen/zero_dp"
             android:visibility="@{viewModel.inProgress}"

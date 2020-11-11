@@ -42,3 +42,10 @@ fun Fragment.errorToast(message: String) {
         Toast.LENGTH_SHORT, false
     ).show()
 }
+
+fun Fragment.successToast(message: String) {
+    Toasty.success(
+        requireContext(), message,
+        Toast.LENGTH_SHORT, true
+    ).show()
+}

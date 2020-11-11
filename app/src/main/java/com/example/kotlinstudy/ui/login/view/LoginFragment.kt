@@ -39,13 +39,13 @@ class LoginFragment : Fragment() {
 
         viewModel.userLoggedInEvent.observe(viewLifecycleOwner, {
             hideKeyboard()
-            if (it) navigation.navigate(LoginFragmentDirections.actionLoginToDashboard())
+            if (it) navigation.navigate(LoginFragmentDirections.toDashboard())
             else errorToast(getString(R.string.error_user))
         })
 
         viewModel.signUpEvent.observe(viewLifecycleOwner, {
             hideKeyboard()
-            navigation.navigate(LoginFragmentDirections.actionLoginToSignUpName())
+            navigation.navigate(LoginFragmentDirections.toSignUp())
         })
     }
 }

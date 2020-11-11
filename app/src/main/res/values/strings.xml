@@ -13,13 +13,18 @@
     <string name="sign_up">Sign Up</string>
     <string name="please_sign_up">Please sign up</string>
     <string name="error_user">User is not found</string>
+    <string name="error_unknown">Something went wrong</string>
     <string name="error_empty">Сan\'t be empty</string>
     <string name="error_email">Incorrect email</string>
     <string name="error_password">Сan\'t be shorter then 6 characters</string>
 
     <!--Sign up screen-->
     <string name="next">Next</string>
+    <string name="create">Create</string>
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="error_repeat">Passwords must be identical</string>
+    <string name="account_created">Account created!</string>
 
 </resources>
