@@ -1,0 +1,39 @@
+<resources>
+
+    <!--  General  -->
+    <dimen name="zero_dp">0dp</dimen>
+
+    <!--  View AppBar  -->
+    <dimen name="app_bar_margin_horizontal">15dp</dimen>
+    <dimen name="app_bar_back_btn_margin_vertical">10dp</dimen>
+    <dimen name="app_bar_back_btn_padding">5dp</dimen>
+    <dimen name="app_bar_title_text_size">26sp</dimen>
+    <dimen name="app_bar_title_padding">2dp</dimen>
+
+    <!--  Styles  -->
+    <dimen name="text_view_line_spacing_extra">5sp</dimen>
+    <dimen name="text_input_layout_margin_horizontal">30dp</dimen>
+    <dimen name="text_input_layout_corner_radius">8dp</dimen>
+    <item name="text_input_layout_lines" format="integer" type="integer">1</item>
+    <dimen name="main_button_padding">15dp</dimen>
+    <dimen name="main_button_margin">30dp</dimen>
+
+    <!--  Splash screen  -->
+    <dimen name="splash_description_text_size">34sp</dimen>
+
+    <!--  Login screen  -->
+    <dimen name="login_email_margin_bottom">20dp</dimen>
+    <dimen name="login_confirm_btn_margin_top">40dp</dimen>
+    <dimen name="login_confirm_btn_padding_horizontal">50dp</dimen>
+    <dimen name="login_confirm_btn_padding_vertical">15dp</dimen>
+    <dimen name="login_sign_up_btn_margin_top">20dp</dimen>
+    <dimen name="login_sign_up_btn_padding_horizontal">25dp</dimen>
+    <dimen name="login_sign_up_btn_padding_vertical">10dp</dimen>
+    <item name="login_email_max_length" format="integer" type="integer">50</item>
+    <item name="login_password_max_length" format="integer" type="integer">20</item>
+
+    <!--  Sign Up screen  -->
+    <dimen name="sign_up_margin">20dp</dimen>
+    <item name="sign_up_text_max_length" format="integer" type="integer">50</item>
+
+</resources>
