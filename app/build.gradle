@@ -1,0 +1,117 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId rootProject.applicationId
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+        testInstrumentationRunner rootProject.unitRunner
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries true
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    // Support
+    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+    implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerViewVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.rxJavaVersion}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rootProject.rxAndroidVersion}"
+    implementation "com.jakewharton.rxbinding2:rxbinding:${rootProject.rxBindingVersion}"
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
+
+    // DI
+    kapt "androidx.hilt:hilt-compiler:$rootProject.hiltViewModelVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.assistedInjectVersion"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hiltViewModelVersion"
+    implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.retrofitVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-simplexml:${rootProject.retrofitVersion}"
+    implementation "com.squareup.okio:okio:${rootProject.okioVersion}"
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.okhttpVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.loggingInterceptorVersion}"
+
+    // Room
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    implementation "androidx.room:room-rxjava2:${rootProject.ext.roomVersion}"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$rootProject.navigationVersion"
+
+    // Glide
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+
+    // Paging
+    implementation "androidx.paging:paging-runtime-ktx:$rootProject.pagingVersion"
+
+    // Work
+    implementation "androidx.work:work-runtime-ktx:$rootProject.workVersion"
+
+    // Log
+    implementation "com.jakewharton.timber:timber:${rootProject.timberVersion}"
+
+    // Toast
+    implementation "com.github.GrenderG:Toasty:${rootProject.toastVersion}"
+}
