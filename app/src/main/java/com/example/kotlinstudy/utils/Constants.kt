@@ -44,8 +44,7 @@ object Constants {
 
     object DELAY {
         const val SPLASH = 3 // seconds
-        const val LOGIN = 1 // seconds
-        const val EDIT_TEXT = 100 // milliseconds
+        const val BASE = 1 // seconds
     }
 
     object NETWORK {
@@ -56,6 +55,10 @@ object Constants {
 
     object DB {
         const val NAME = "kotlin-database"
+    }
+
+    object NUM {
+        const val PASSWORD_MIN_LENGTH = 6
     }
 
     //  Server

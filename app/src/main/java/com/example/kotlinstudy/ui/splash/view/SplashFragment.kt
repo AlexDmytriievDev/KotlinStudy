@@ -35,8 +35,8 @@ class SplashFragment : Fragment() {
         val navigation = Navigation.findNavController(view)
 
         viewModel.isUserSignIn.observe(viewLifecycleOwner, {
-            if (it) navigation.navigate(SplashFragmentDirections.actionSplashToDashboard())
-            else navigation.navigate(SplashFragmentDirections.actionSplashToLogin())
+            if (it) navigation.navigate(SplashFragmentDirections.toDashboard())
+            else navigation.navigate(SplashFragmentDirections.toLogin())
         })
         viewModel.getSignInUser()
     }

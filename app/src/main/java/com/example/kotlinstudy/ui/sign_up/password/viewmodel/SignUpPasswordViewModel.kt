@@ -1,7 +1,6 @@
-package com.example.kotlinstudy.ui.login.viewmodel
+package com.example.kotlinstudy.ui.sign_up.password.viewmodel
 
 import android.content.Context
-import android.util.Patterns
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,13 +11,12 @@ import com.example.kotlinstudy.utils.Constants
 import com.example.kotlinstudy.utils.RxUtils
 import com.example.kotlinstudy.utils.SingleLiveEvent
 import dagger.hilt.android.qualifiers.ApplicationContext
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
-class LoginViewModel @ViewModelInject constructor(
+class SignUpPasswordViewModel @ViewModelInject constructor(
     @ApplicationContext
     private val context: Context,
     private val rxUtils: RxUtils,
@@ -26,62 +24,53 @@ class LoginViewModel @ViewModelInject constructor(
     private val disposables: CompositeDisposable
 ) : ViewModel() {
 
-    val email = MutableLiveData<String>()
-    val emailError = MutableLiveData<String>()
-
-    val password = MutableLiveData<String>()
+    val user = MutableLiveData<User>()
     val passwordError = MutableLiveData<String>()
-
+    val repeatPassword = MutableLiveData<String>()
+    val repeatPasswordError = MutableLiveData<String>()
     val inProgress = MutableLiveData<Boolean>()
 
-    val signUpEvent = SingleLiveEvent<Boolean>()
-    val userLoggedInEvent = SingleLiveEvent<Boolean>()
+    val isAccountCreated = SingleLiveEvent<Boolean>()
 
     override fun onCleared() {
         super.onCleared()
         disposables.dispose()
     }
 
-    fun login() {
+    fun createAccount() {
+        super.onCleared()
         if (isValidCredentials()) {
             disposables.add(
-                rxUtils.zipWithTimer(dataBaseRepository.getAll(), Constants.DELAY.BASE)
-                    .flatMap { users: List<User> -> updateUser(users) }
+                rxUtils.zipWithTimer(dataBaseRepository.addUser(user.value!!.apply {
+                    isSignIn = true
+                }), Constants.DELAY.BASE)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSubscribe { inProgress.value = true }
                     .doFinally { inProgress.value = false }
-                    .subscribe({ isLoggedIn: Boolean ->
-                        userLoggedInEvent.value = isLoggedIn
+                    .subscribe({ success: Boolean ->
+                        isAccountCreated.value = success
                     }, Timber::e)
             )
         }
     }
 
-    private fun updateUser(users: List<User>): Single<Boolean> {
-        if (users.isNotEmpty()) {
-            for (user in users) {
-                if (user.email == email.value && user.password == password.value)
-                    user.isSignIn = true
-                return dataBaseRepository.updateUser(user)
-            }
-        }
-        return Single.just(false)
-    }
-
     private fun isValidCredentials(): Boolean {
         when {
-            email.value.isNullOrEmpty() -> {
-                emailError.value = context.getString(R.string.error_empty)
-            }
-            !Patterns.EMAIL_ADDRESS.matcher(email.value ?: "").matches() -> {
-                emailError.value = context.getString(R.string.error_email)
-            }
-            password.value.isNullOrEmpty() -> {
+            user.value?.password.isNullOrEmpty() -> {
                 passwordError.value = context.getString(R.string.error_empty)
             }
-            password.value?.length ?: 0 < Constants.NUM.PASSWORD_MIN_LENGTH -> {
+            user.value?.password?.length ?: 0 < Constants.NUM.PASSWORD_MIN_LENGTH -> {
                 passwordError.value = context.getString(R.string.error_password)
+            }
+            repeatPassword.value.isNullOrEmpty() -> {
+                repeatPasswordError.value = context.getString(R.string.error_empty)
+            }
+            repeatPassword.value?.length ?: 0 < Constants.NUM.PASSWORD_MIN_LENGTH -> {
+                repeatPasswordError.value = context.getString(R.string.error_password)
+            }
+            user.value?.password != repeatPassword.value -> {
+                repeatPasswordError.value = context.getString(R.string.error_repeat)
             }
             else -> return true
         }

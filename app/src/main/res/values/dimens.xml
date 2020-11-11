@@ -2,6 +2,8 @@
 
     <!--  General  -->
     <dimen name="zero_dp">0dp</dimen>
+    <item name="edit_text_max_length" format="integer" type="integer">50</item>
+    <item name="password_max_length" format="integer" type="integer">20</item>
 
     <!--  View AppBar  -->
     <dimen name="app_bar_margin_horizontal">15dp</dimen>
@@ -29,11 +31,8 @@
     <dimen name="login_sign_up_btn_margin_top">20dp</dimen>
     <dimen name="login_sign_up_btn_padding_horizontal">25dp</dimen>
     <dimen name="login_sign_up_btn_padding_vertical">10dp</dimen>
-    <item name="login_email_max_length" format="integer" type="integer">50</item>
-    <item name="login_password_max_length" format="integer" type="integer">20</item>
 
     <!--  Sign Up screen  -->
     <dimen name="sign_up_margin">20dp</dimen>
-    <item name="sign_up_text_max_length" format="integer" type="integer">50</item>
 
 </resources>
