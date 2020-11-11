@@ -1,0 +1,25 @@
+<resources>
+
+    <!--General-->
+    <string name="ok">OK</string>
+    <string name="app_name">Kotlin</string>
+    <string name="foreground_state">Application go to: FOREGROUND</string>
+    <string name="background_state">Application go to: BACKGROUND</string>
+
+    <!--Login screen-->
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="please_sign_up">Please sign up</string>
+    <string name="error_user">User is not found</string>
+    <string name="error_empty">Сan\'t be empty</string>
+    <string name="error_email">Incorrect email</string>
+    <string name="error_password">Сan\'t be shorter then 6 characters</string>
+
+    <!--Sign up screen-->
+    <string name="next">Next</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+
+</resources>
