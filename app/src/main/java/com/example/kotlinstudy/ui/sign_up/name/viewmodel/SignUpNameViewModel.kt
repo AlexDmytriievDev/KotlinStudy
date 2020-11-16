@@ -1,13 +1,13 @@
 package com.example.kotlinstudy.ui.sign_up.name.viewmodel
 
 import android.content.Context
-import android.util.Log
 import android.util.Patterns
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.kotlinstudy.R
 import com.example.kotlinstudy.model.User
+import com.example.kotlinstudy.utils.Constants
 import com.example.kotlinstudy.utils.SingleLiveEvent
 import dagger.hilt.android.qualifiers.ApplicationContext
 
@@ -28,12 +28,12 @@ class SignUpNameViewModel @ViewModelInject constructor(
     }
 
     fun verifyData() {
-        Log.e("--------", "${user.value}");
         when {
             user.value?.email.isNullOrEmpty() -> {
                 emailError.value = context.getString(R.string.error_empty)
             }
-            !Patterns.EMAIL_ADDRESS.matcher(user.value?.email ?: "").matches() -> {
+            !Patterns.EMAIL_ADDRESS.matcher(user.value?.email ?: Constants.CHAR.EMPTY)
+                .matches() -> {
                 emailError.value = context.getString(R.string.error_email)
             }
             user.value?.firstName.isNullOrEmpty() -> {

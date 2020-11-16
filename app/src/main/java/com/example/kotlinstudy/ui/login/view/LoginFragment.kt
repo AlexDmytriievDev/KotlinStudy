@@ -43,9 +43,8 @@ class LoginFragment : Fragment() {
             else errorToast(getString(R.string.error_user))
         })
 
-        viewModel.signUpEvent.observe(viewLifecycleOwner, {
-            hideKeyboard()
+        binding.loginSignUpBtn.setOnClickListener {
             navigation.navigate(LoginFragmentDirections.toSignUp())
-        })
+        }
     }
 }

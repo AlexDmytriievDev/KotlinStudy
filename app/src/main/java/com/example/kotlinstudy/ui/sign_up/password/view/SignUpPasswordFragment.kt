@@ -1,7 +1,6 @@
 package com.example.kotlinstudy.ui.sign_up.password.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,18 +32,19 @@ class SignUpPasswordFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val navigation = Navigation.findNavController(view)
-
         val args: SignUpPasswordFragmentArgs by navArgs()
-        viewModel.user.value = args.user
+
+        viewModel.apply {
+            user.value = args.user
+            isAccountCreated.observe(viewLifecycleOwner, {
+                hideKeyboard()
+                if (it) {
+                    successToast(getString(R.string.account_created))
+                    navigation.navigate(SignUpPasswordFragmentDirections.toDashboard())
+                } else errorToast(getString(R.string.error_unknown))
+            })
+        }
 
         binding.signUpAppBar.setOnClickListener { navigation.popBackStack() }
-
-        viewModel.isAccountCreated.observe(viewLifecycleOwner, {
-            hideKeyboard()
-            if (it) {
-                successToast(getString(R.string.account_created))
-                navigation.navigate(SignUpPasswordFragmentDirections.toDashboard())
-            } else errorToast(getString(R.string.error_unknown))
-        })
     }
 }
