@@ -3,6 +3,8 @@ package com.example.kotlinstudy.di.module
 import android.content.Context
 import androidx.room.Room
 import com.example.kotlinstudy.database.AppDatabase
+import com.example.kotlinstudy.database.DataBaseRepository
+import com.example.kotlinstudy.database.DataBaseRepositoryImpl
 import com.example.kotlinstudy.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -14,6 +16,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(ApplicationComponent::class)
 object DataBaseModule {
+
+    @Provides
+    @Singleton
+    fun provideDataBaseRepository(appDatabase: AppDatabase): DataBaseRepository {
+        return DataBaseRepositoryImpl(appDatabase)
+    }
 
     @Provides
     @Singleton

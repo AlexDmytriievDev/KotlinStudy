@@ -6,11 +6,16 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.adapters.TextViewBindingAdapter
 import androidx.databinding.adapters.TextViewBindingAdapter.setTextWatcher
 import androidx.lifecycle.MutableLiveData
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
+import com.example.kotlinstudy.utils.Constants
 import com.example.kotlinstudy.utils.SingleLiveEvent
 import com.google.android.material.textfield.TextInputLayout
 
@@ -19,13 +24,13 @@ object BindingAdapters {
     @JvmStatic
     @SuppressLint("RestrictedApi")
     @BindingAdapter("android:onTextChanged")
-    fun setListener(view: TextView, onTextChanged: TextViewBindingAdapter.OnTextChanged) {
+    fun setListener(view: TextView, onTextChanged: TextViewBindingAdapter.OnTextChanged?) {
         setTextWatcher(view, null, onTextChanged, null, null)
     }
 
     @JvmStatic
     @BindingAdapter("android:onTextChangedObserver")
-    fun setListener(view: TextView, error: MutableLiveData<String>) {
+    fun setListener(view: TextView, error: MutableLiveData<String>?) {
         view.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
@@ -34,22 +39,22 @@ object BindingAdapters {
             }
 
             override fun afterTextChanged(s: Editable) {
-                error.value = ""
+                error?.value = Constants.CHAR.EMPTY
             }
         })
     }
 
     @JvmStatic
     @BindingAdapter("android:onClickObserver")
-    fun setOnClickListener(view: View, event: SingleLiveEvent<Boolean>) {
-        view.setOnClickListener { event.value = true }
+    fun setOnClickListener(view: View, event: SingleLiveEvent<Boolean>?) {
+        view.setOnClickListener { event?.value = true }
     }
 
     @JvmStatic
     @BindingAdapter("android:onActionDoneClick")
-    fun setOnDoneClickListener(view: EditText, listener: View.OnClickListener) {
+    fun setOnDoneClickListener(view: EditText, listener: View.OnClickListener?) {
         view.setOnEditorActionListener { v, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) listener.onClick(v)
+            if (actionId == EditorInfo.IME_ACTION_DONE) listener?.onClick(v)
             false
         }
     }
@@ -64,8 +69,20 @@ object BindingAdapters {
     }
 
     @JvmStatic
+    @BindingAdapter("android:setCircleImage")
+    fun setCircleImage(view: ImageView, url: String?) {
+        url?.apply {
+            Glide.with(view)
+                .load(url)
+                .diskCacheStrategy(DiskCacheStrategy.DATA)
+                .apply(RequestOptions.circleCropTransform())
+                .into(view)
+        }
+    }
+
+    @JvmStatic
     @BindingAdapter("app:errorText")
     fun setErrorMessage(view: TextInputLayout, errorMessage: String?) {
-        view.error = errorMessage
+        view.error = errorMessage ?: Constants.CHAR.EMPTY
     }
 }
