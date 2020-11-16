@@ -34,13 +34,7 @@ class LoginViewModel @ViewModelInject constructor(
 
     val inProgress = MutableLiveData<Boolean>()
 
-    val signUpEvent = SingleLiveEvent<Boolean>()
     val userLoggedInEvent = SingleLiveEvent<Boolean>()
-
-    override fun onCleared() {
-        super.onCleared()
-        disposables.dispose()
-    }
 
     fun login() {
         if (isValidCredentials()) {
@@ -74,7 +68,8 @@ class LoginViewModel @ViewModelInject constructor(
             email.value.isNullOrEmpty() -> {
                 emailError.value = context.getString(R.string.error_empty)
             }
-            !Patterns.EMAIL_ADDRESS.matcher(email.value ?: "").matches() -> {
+            !Patterns.EMAIL_ADDRESS.matcher(email.value ?: Constants.CHAR.EMPTY)
+                .matches() -> {
                 emailError.value = context.getString(R.string.error_email)
             }
             password.value.isNullOrEmpty() -> {
@@ -86,5 +81,10 @@ class LoginViewModel @ViewModelInject constructor(
             else -> return true
         }
         return false
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        disposables.dispose()
     }
 }

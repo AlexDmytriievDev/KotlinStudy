@@ -28,19 +28,19 @@
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="FontTextViewLight" parent="ThemeTextView">
+    <style name="ThemeTextViewLight" parent="ThemeTextView">
         <item name="android:fontFamily">@font/font_inter_light_beta</item>
     </style>
 
-    <style name="FontTextViewRegular" parent="ThemeTextView">
+    <style name="ThemeTextViewRegular" parent="ThemeTextView">
         <item name="android:fontFamily">@font/font_inter_regular</item>
     </style>
 
-    <style name="FontTextViewSemiBold" parent="ThemeTextView">
+    <style name="ThemeTextViewSemiBold" parent="ThemeTextView">
         <item name="android:fontFamily">@font/font_inter_semi_bold</item>
     </style>
 
-    <style name="FontTextViewBold" parent="ThemeTextView">
+    <style name="ThemeTextViewBold" parent="ThemeTextView">
         <item name="android:fontFamily">@font/font_inter_bold</item>
     </style>
 
@@ -58,13 +58,13 @@
         <item name="errorEnabled">true</item>
     </style>
 
-    <style name="ThemeTextInputEditText" parent="FontTextViewRegular">
+    <style name="ThemeTextInputEditText" parent="ThemeTextViewRegular">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:lines">@integer/text_input_layout_lines</item>
     </style>
 
-    <style name="ThemeMainButton" parent="FontTextViewSemiBold">
+    <style name="ThemeMainButton" parent="ThemeTextViewSemiBold">
         <item name="android:layout_width">@dimen/zero_dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/selector_blue_round</item>
@@ -76,7 +76,7 @@
         <item name="android:layout_margin">@dimen/main_button_margin</item>
     </style>
 
-    <style name="ThemeTitle" parent="FontTextViewSemiBold">
+    <style name="ThemeTitle" parent="ThemeTextViewSemiBold">
         <item name="android:layout_width">@dimen/zero_dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/selector_blue_round</item>

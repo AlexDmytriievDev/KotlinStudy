@@ -31,7 +31,7 @@ object InteractionUtils {
             if (URLUtil.isValidUrl(url)) return url
             else if (!url.startsWith(HTTP_URI) || !url.startsWith(HTTPS_URI)) return HTTP_URI + url
         }
-        return ""
+        return Constants.CHAR.EMPTY
     }
 
     fun openSettings(context: Context): Intent? {

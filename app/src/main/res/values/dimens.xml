@@ -4,6 +4,7 @@
     <dimen name="zero_dp">0dp</dimen>
     <item name="edit_text_max_length" format="integer" type="integer">50</item>
     <item name="password_max_length" format="integer" type="integer">20</item>
+    <dimen name="app_bar_height">60dp</dimen>
 
     <!--  View AppBar  -->
     <dimen name="app_bar_margin_horizontal">15dp</dimen>
@@ -34,5 +35,22 @@
 
     <!--  Sign Up screen  -->
     <dimen name="sign_up_margin">20dp</dimen>
+
+    <!--  Dashboard screen  -->
+    <dimen name="dashboard_margin">15dp</dimen>
+    <dimen name="loading_view_height">100dp</dimen>
+    <dimen name="loading_view_text_size">16sp</dimen>
+    <dimen name="post_card_margin">10dp</dimen>
+    <dimen name="post_card_corner_radius">10dp</dimen>
+    <dimen name="post_card_elevation">5dp</dimen>
+    <dimen name="post_card_padding">20dp</dimen>
+    <dimen name="post_avatar_size">70dp</dimen>
+    <dimen name="post_avatar_margin">10dp</dimen>
+    <dimen name="post_avatar_padding">1px</dimen>
+    <dimen name="post_avatar_progress_size">35dp</dimen>
+    <dimen name="post_images_margin">40dp</dimen>
+    <dimen name="post_texts_margin">10dp</dimen>
+    <dimen name="post_author_text_size">18sp</dimen>
+    <item name="post_title_lines" format="integer" type="integer">2</item>
 
 </resources>

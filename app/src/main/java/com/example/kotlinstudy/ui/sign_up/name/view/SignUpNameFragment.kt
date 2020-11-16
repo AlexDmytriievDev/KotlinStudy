@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.example.kotlinstudy.databinding.FragmentSignUpNameBinding
 import com.example.kotlinstudy.ui.sign_up.name.viewmodel.SignUpNameViewModel
-import com.example.kotlinstudy.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,11 +28,10 @@ class SignUpNameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val navigation = Navigation.findNavController(view)
 
-        binding.signUpAppBar.setOnClickListener { navigation.popBackStack() }
-
         viewModel.isAllDataFilled.observe(viewLifecycleOwner, {
-            hideKeyboard()
             navigation.navigate(SignUpNameFragmentDirections.toSignUpPassword(viewModel.user.value))
         })
+
+        binding.signUpAppBar.setOnClickListener { navigation.popBackStack() }
     }
 }

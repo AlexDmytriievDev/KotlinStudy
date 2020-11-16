@@ -12,10 +12,10 @@ import java.util.*
 data class User(
     @PrimaryKey
     val id: String = UUID.randomUUID().toString(),
-    var email: String = "",
-    var firstName: String = "",
-    var lastName: String = "",
-    var avatarUrl: String = "",
-    var password: String = "",
+    var email: String = Constants.CHAR.EMPTY,
+    var firstName: String = Constants.CHAR.EMPTY,
+    var lastName: String = Constants.CHAR.EMPTY,
+    var avatarUrl: String = Constants.CHAR.EMPTY,
+    var password: String = Constants.CHAR.EMPTY,
     var isSignIn: Boolean = false
 ) : Parcelable

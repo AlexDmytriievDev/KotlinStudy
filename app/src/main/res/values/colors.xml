@@ -17,6 +17,8 @@
     <color name="dodgerBlueTransparent">#9269ACFF</color>
     <color name="white">#ffffff</color>
     <color name="whiteTransparent">#05FFFFFF</color>
+    <color name="peach">#F8ECE0</color>
+    <color name="peachDark">#E8D0B7</color>
     <color name="pampas">#f4f0ec</color>
     <color name="mercury">#e3e3e3</color>
     <color name="silverChalice">#b2b2b2</color>

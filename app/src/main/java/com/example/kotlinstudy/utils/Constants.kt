@@ -3,8 +3,9 @@ package com.example.kotlinstudy.utils
 object Constants {
 
     object API {
-        const val BASE_URL = "https://api.github.com/"
-        const val TEST = "TEST"
+        const val BASE_URL = "https://www.reddit.com/"
+
+        const val GET_POSTS = "r/aww/hot.json"
     }
 
     object CHAR {
@@ -59,17 +60,16 @@ object Constants {
 
     object NUM {
         const val PASSWORD_MIN_LENGTH = 6
+        const val POST_DEF_LOAD_SIZE = 40
+        const val POST_PREFETCH_DISTANCE = 10
     }
 
     //  Server
-    const val ID = "id"
-    const val CODE = "code"
-    const val EMAIL = "email"
     const val USERS = "users"
-    const val MESSAGE = "message"
-    const val FIRST_NAME = "firstName"
-    const val LAST_NAME = "lastName"
-    const val AVATAR_URL = "avatarUrl"
-    const val IS_SIGN_IN = "isSignIn"
-    const val PASSWORD = "password"
+    const val LIMIT = "limit"
+    const val AFTER = "after"
+    const val BEFORE = "before"
+    const val ICON_URL = "icon_url"
+    const val NUM_COMMENTS = "num_comments"
+    const val ALL_AWARDINGS = "all_awardings"
 }

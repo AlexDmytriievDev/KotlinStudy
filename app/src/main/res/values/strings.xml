@@ -20,6 +20,7 @@
 
     <!--Sign up screen-->
     <string name="next">Next</string>
+    <string name="retry">Retry</string>
     <string name="create">Create</string>
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>

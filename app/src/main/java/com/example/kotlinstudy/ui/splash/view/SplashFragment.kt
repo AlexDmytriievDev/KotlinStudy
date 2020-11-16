@@ -25,20 +25,23 @@ class SplashFragment : Fragment() {
     }
 
     override fun onCreateView(i: LayoutInflater, v: ViewGroup?, b: Bundle?): View? {
-        val binding = FragmentSplashBinding.inflate(i, v, false)
-        binding.lifecycleOwner = viewLifecycleOwner
-        return binding.root
+        return with(FragmentSplashBinding.inflate(i, v, false)) {
+            lifecycleOwner = viewLifecycleOwner
+            root
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val navigation = Navigation.findNavController(view)
 
-        viewModel.isUserSignIn.observe(viewLifecycleOwner, {
-            if (it) navigation.navigate(SplashFragmentDirections.toDashboard())
-            else navigation.navigate(SplashFragmentDirections.toLogin())
-        })
-        viewModel.getSignInUser()
+        viewModel.apply {
+            isUserSignIn.observe(viewLifecycleOwner, {
+                if (it) navigation.navigate(SplashFragmentDirections.toDashboard())
+                else navigation.navigate(SplashFragmentDirections.toLogin())
+            })
+            getSignInUser()
+        }
     }
 
     override fun onDetach() {
