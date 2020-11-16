@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="post"
+            type="com.example.kotlinstudy.model.post.Post" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/post_avatar"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/post_avatar_height"
+            android:setCircleImage="@{post.image}"
+            android:src="@drawable/ic_person"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_circle_white_transparent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/post_back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/post_back_btn_margin"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/post_back_btn_padding"
+                android:src="@drawable/ic_back_arrow"
+                tools:ignore="ContentDescription" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/post_stars_count"
+            style="@style/ThemeTextViewLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/post_horizontal_margin"
+            android:layout_marginBottom="@dimen/post_bottom_margin"
+            android:drawablePadding="@dimen/post_labels_padding"
+            android:gravity="center"
+            android:text="@{String.valueOf(post.score)}"
+            android:textColor="@color/black"
+            app:drawableStartCompat="@drawable/ic_star"
+            app:layout_constraintBottom_toBottomOf="@+id/post_avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="236" />
+
+        <TextView
+            android:id="@+id/post_comments_count"
+            style="@style/ThemeTextViewLight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/post_horizontal_margin"
+            android:layout_marginBottom="@dimen/post_bottom_margin"
+            android:drawablePadding="@dimen/post_labels_padding"
+            android:gravity="center"
+            android:text="@{String.valueOf(post.commentCount)}"
+            android:textColor="@color/black"
+            app:drawableStartCompat="@drawable/ic_comment"
+            app:layout_constraintBottom_toBottomOf="@+id/post_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="17" />
+
+        <TextView
+            android:id="@+id/post_author"
+            style="@style/ThemeTextViewRegular"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/post_author_padding"
+            android:text="@{post.author}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/post_author_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_avatar"
+            tools:text="John Smith" />
+
+        <FrameLayout
+            android:id="@+id/post_author_divider"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/post_divider_height"
+            android:layout_marginStart="@dimen/post_divider_margin_horizontal"
+            android:layout_marginTop="@dimen/post_divider_margin_top"
+            android:layout_marginEnd="@dimen/post_divider_margin_horizontal"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_author" />
+
+        <TextView
+            android:id="@+id/post_title"
+            style="@style/ThemeTextViewLight"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/zero_dp"
+            android:padding="@dimen/post_text_margin"
+            android:text="@string/long_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/post_author_divider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

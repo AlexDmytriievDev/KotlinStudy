@@ -12,7 +12,7 @@ class DashboardViewHolder(
 
     init {
         binding.postCard.setOnClickListener {
-            listener.onPostClick(binding.postAvatar, binding.post)
+            listener.onPostClick(binding.post)
         }
     }
 

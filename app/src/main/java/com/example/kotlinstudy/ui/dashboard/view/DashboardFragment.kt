@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.example.kotlinstudy.databinding.FragmentDashboardBinding
 import com.example.kotlinstudy.model.post.Post
 import com.example.kotlinstudy.ui.dashboard.adapter.DashboardAdapter
@@ -53,12 +51,7 @@ class DashboardFragment : Fragment(), DashboardAdapter.OnPostClickListener {
         }
     }
 
-    override fun onPostClick(view: ImageView, post: Post?) {
-        post?.apply {
-            navigation.navigate(
-                DashboardFragmentDirections.toPost(this),
-                FragmentNavigatorExtras(view to getImage())
-            )
-        }
+    override fun onPostClick(post: Post?) {
+        post?.apply { navigation.navigate(DashboardFragmentDirections.toPost(this)) }
     }
 }

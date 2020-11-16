@@ -44,7 +44,7 @@ object Constants {
     }
 
     object DELAY {
-        const val SPLASH = 3 // seconds
+        const val SPLASH = 2 // seconds
         const val BASE = 1 // seconds
     }
 
