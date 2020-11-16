@@ -110,5 +110,25 @@
             app:popExitAnim="@anim/animation_fade_out"
             app:popUpTo="@+id/navigation_graph"
             app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/to_post"
+            app:destination="@id/fragment_post"
+            app:enterAnim="@anim/animation_fade_in"
+            app:exitAnim="@anim/animation_fade_out"
+            app:popEnterAnim="@anim/animation_fade_in"
+            app:popExitAnim="@anim/animation_fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_post"
+        android:name="com.example.kotlinstudy.ui.post.view.PostFragment"
+        tools:layout="@layout/fragment_post">
+
+        <argument
+            android:name="post"
+            android:defaultValue="@null"
+            app:argType="com.example.kotlinstudy.model.post.Post"
+            app:nullable="true" />
     </fragment>
 </navigation>

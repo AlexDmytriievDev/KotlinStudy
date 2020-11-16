@@ -2,7 +2,6 @@ package com.example.kotlinstudy.ui.dashboard.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.paging.PagingDataAdapter
 import com.example.kotlinstudy.databinding.ViewHolderDashboardPostBinding
 import com.example.kotlinstudy.model.post.Post
@@ -16,10 +15,6 @@ class DashboardAdapter @Inject constructor() :
     PagingDataAdapter<Post, DashboardViewHolder>(DiffUtilCallBack()) {
 
     lateinit var listener: OnPostClickListener
-
-    fun setOnClickListener(onClickListener: OnPostClickListener) {
-        this.listener = onClickListener;
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
         return DashboardViewHolder(
@@ -36,6 +31,6 @@ class DashboardAdapter @Inject constructor() :
     }
 
     interface OnPostClickListener {
-        fun onPostClick(view: ImageView, post: Post?)
+        fun onPostClick(post: Post?)
     }
 }

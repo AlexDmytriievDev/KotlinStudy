@@ -24,8 +24,7 @@ class SplashViewModel @ViewModelInject constructor(
     fun getSignInUser() {
         super.onCleared()
         disposables.add(
-            //TODO SPLASH
-            rxUtils.zipWithTimer(dataBaseRepository.getSignInUser(), Constants.DELAY.BASE)
+            rxUtils.zipWithTimer(dataBaseRepository.getSignInUser(), Constants.DELAY.SPLASH)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ user: User ->

@@ -40,17 +40,31 @@
     <dimen name="dashboard_margin">15dp</dimen>
     <dimen name="loading_view_height">100dp</dimen>
     <dimen name="loading_view_text_size">16sp</dimen>
-    <dimen name="post_card_margin">10dp</dimen>
-    <dimen name="post_card_corner_radius">10dp</dimen>
-    <dimen name="post_card_elevation">5dp</dimen>
-    <dimen name="post_card_padding">20dp</dimen>
-    <dimen name="post_avatar_size">70dp</dimen>
-    <dimen name="post_avatar_margin">10dp</dimen>
-    <dimen name="post_avatar_padding">1px</dimen>
-    <dimen name="post_avatar_progress_size">35dp</dimen>
-    <dimen name="post_images_margin">40dp</dimen>
-    <dimen name="post_texts_margin">10dp</dimen>
-    <dimen name="post_author_text_size">18sp</dimen>
-    <item name="post_title_lines" format="integer" type="integer">2</item>
+    <dimen name="dashboard_post_card_margin">10dp</dimen>
+    <dimen name="dashboard_post_card_corner_radius">10dp</dimen>
+    <dimen name="dashboard_post_card_elevation">5dp</dimen>
+    <dimen name="dashboard_post_card_padding">20dp</dimen>
+    <dimen name="dashboard_post_avatar_size">70dp</dimen>
+    <dimen name="dashboard_post_avatar_margin">10dp</dimen>
+    <dimen name="dashboard_post_avatar_padding">1px</dimen>
+    <dimen name="dashboard_post_avatar_progress_size">35dp</dimen>
+    <dimen name="dashboard_post_images_margin">40dp</dimen>
+    <dimen name="dashboard_post_texts_margin">10dp</dimen>
+    <dimen name="dashboard_post_author_text_size">18sp</dimen>
+    <item name="dashboard_post_title_lines" format="integer" type="integer">2</item>
+
+    <!--  View AppBar  -->
+    <dimen name="post_back_btn_margin">15dp</dimen>
+    <dimen name="post_back_btn_padding">5dp</dimen>
+    <dimen name="post_author_text_size">24sp</dimen>
+    <dimen name="post_text_margin">30dp</dimen>
+    <dimen name="post_bottom_margin">30dp</dimen>
+    <dimen name="post_horizontal_margin">20dp</dimen>
+    <dimen name="post_labels_padding">10dp</dimen>
+    <dimen name="post_avatar_height">200dp</dimen>
+    <dimen name="post_author_padding">10dp</dimen>
+    <dimen name="post_divider_height">1px</dimen>
+    <dimen name="post_divider_margin_top">10dp</dimen>
+    <dimen name="post_divider_margin_horizontal">50dp</dimen>
 
 </resources>
